@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using InterfaceExercise;
 
 namespace InterfaceExercise
 {
@@ -39,6 +41,48 @@ namespace InterfaceExercise
 
             //Now, create objects of your 3 classes and give their members values;
             //Creatively display and organize their values
+            Car car = new Car();
+            car.IsFuelEfficent = true;
+            car.GroundClearance = "low";
+            car.CompanyLocation = "Japan";
+            car.Price = 30045;
+            car.MakesElectricCar = false;
+            car.NumberOfSeats = 5;
+            car.NumberOfWheels = 4;
+            car.NumberOfDoors = 4;
+            car.Name = "Toyota Camry";
+
+            Truck truck = new Truck();
+            truck.IsManuel = true;
+            truck.UsesDiesel = true;
+            truck.CompanyLocation = "USA";
+            truck.Price = 180000;
+            truck.MakesElectricCar = false;
+            truck.NumberOfSeats = 2;
+            truck.NumberOfWheels = 6;
+            truck.NumberOfDoors = 2;
+            truck.Name = "Semi-Truck";
+
+            SUV suv = new SUV();
+            suv.HasSunroof = true;
+            suv.CanGoOffRoad = true;
+            suv.CompanyLocation = "USA";
+            suv.Price = 39000;
+            suv.MakesElectricCar = false;
+            suv.NumberOfSeats = 5;
+            suv.NumberOfWheels = 4;
+            suv.NumberOfDoors = 4;
+            suv.Name = "Jeep Cherokee";
+
+            var vehicles = new List<IVehicle>() { car, truck, suv };
+            foreach(var vehicle in vehicles)
+            {
+                vehicle.PrintVehicleInfo();
+                vehicle.PrintCompanyInfo();
+                vehicle.PrintInfo();
+                Console.WriteLine("--------------------------------");
+            }
+
         }
     }
 }
